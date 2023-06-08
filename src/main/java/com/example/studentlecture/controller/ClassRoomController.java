@@ -12,6 +12,12 @@ public class ClassRoomController {
 
     private final ClassRoomService classRoomService;
 
+
+    @GetMapping("/{id}")
+    public void getClassRoomById(@PathVariable Long id) {
+        classRoomService.getClassRoomById(id);
+    }
+
     @PostMapping
     public void addClassRoom() {
         classRoomService.addClassRoom();
