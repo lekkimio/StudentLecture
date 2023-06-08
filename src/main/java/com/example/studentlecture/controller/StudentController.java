@@ -17,8 +17,17 @@ public class StudentController {
 
 
     @GetMapping
-    public List<Student> getAllStusents() {
+    public List<Student> getAllStudents() {
         return studentService.getAllStudents();
+    }
+
+    @GetMapping("/id-above/{id}")
+    public List<Student> getStudentWithIdAbove(@PathVariable Long id) {
+        return studentService.getStudentWithIdAbove(id);
+    }
+    @GetMapping("/id-above-jpa/{id}")
+    public List<Student> getStudentWithIdAboveJpa(@PathVariable Long id) {
+        return studentService.getStudentWithIdAboveJPA(id);
     }
 
     @GetMapping("/{id}")
