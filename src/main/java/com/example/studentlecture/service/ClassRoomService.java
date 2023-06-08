@@ -12,9 +12,9 @@ public class ClassRoomService {
     private final ClassRoomRepository classRoomRepository;
     private final StudentService studentService;
 
-    public void addClassRoom() {
+    public ClassRoom addClassRoom() {
         ClassRoom classRoom = new ClassRoom();
-        classRoomRepository.save(classRoom);
+        return classRoomRepository.save(classRoom);
     }
 
     public ClassRoom getClassRoomById(Long id){
@@ -29,5 +29,17 @@ public class ClassRoomService {
 
         classRoomRepository.save(classRoom);
 
+    }
+
+    public void deleteClassRoomById(Long classRoomId) {
+        classRoomRepository.deleteById(classRoomId);
+    }
+
+    public void deleteStudentFromClassRoom(Long classRoomId, Long studentId) {
+        ClassRoom classRoom = getClassRoomById(classRoomId);
+
+        classRoom.getStudents().remove(studentService.getStudentById(studentId));
+
+        classRoomRepository.save(classRoom);
     }
 }

@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Entity
 @Table(name = "students")
 @Data
@@ -20,6 +21,7 @@ public class Student {
     private String firstName;
     private String lastName;
     private String email;
+
 }
 
 
