@@ -15,8 +15,6 @@ public class ClassRoom {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Integer studentCount = 0;
-
     @ManyToMany(cascade = CascadeType.DETACH)
     @JoinTable(name = "classrooms_students",
             joinColumns = @JoinColumn(name = "class_room_id"),

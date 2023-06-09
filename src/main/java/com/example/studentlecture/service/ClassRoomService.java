@@ -27,7 +27,6 @@ public class ClassRoomService {
 
         classRoom.getStudents().add(studentService.getStudentById(studentId));
 
-        classRoom.setStudentCount(classRoom.getStudents().size());
 
         classRoomRepository.save(classRoom);
 
@@ -41,8 +40,6 @@ public class ClassRoomService {
         ClassRoom classRoom = getClassRoomById(classRoomId);
 
         classRoom.getStudents().remove(studentService.getStudentById(studentId));
-
-        classRoom.setStudentCount(classRoom.getStudents().size());
 
         classRoomRepository.save(classRoom);
     }
